@@ -5,10 +5,18 @@ var User = require('../models/models').User;
 var Skill = require('../models/models').Skill;
 
 router.get('/', function(req, res) {
-  res.render('landingPage', {
-    title: 'Skill Tree',
-    title2: 'test'
-  });
+  Skills.find({
+      owner: req.user._id
+    })
+    .then(function(skills) {
+      res.render('landingPage', {
+        title: 'Skill Tree',
+        skills: skills
+      });
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 });
 
 router.post('/addSkill:parentId', function(req, res) {
@@ -26,4 +34,4 @@ router.post('/addSkill:parentId', function(req, res) {
     });
 });
 
-module.exports = router;
+module.exports = router;;
