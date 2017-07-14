@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.render('landingPage', {title: 'Skill Tree', title2: 'test'});
+  res.render('landingPage', {title: 'Skill Tree'});
 });
 
 module.exports = router;
