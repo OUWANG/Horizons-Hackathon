@@ -27,6 +27,10 @@ var skillSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User',
     required: true
+  },
+  level: {
+    type: Number,
+    required: true
   }
 });
 
