@@ -3,14 +3,14 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var User = require('../models/models').User;
 
-module.exports = function(password) {
+module.exports = function(passport) {
   router.get('/signup', function(req, res) {
-    res.render('/signup';)
+    res.render('signup')
   })
 
   router.post('/signup', function(req, res) {
     if (req.body.password !== req.body.password_confirm) {
-      res.render('/signup');
+      res.render('signup');
     } else {
       var user = new User({
         username: req.body.username,
@@ -28,7 +28,7 @@ module.exports = function(password) {
   })
 
   router.get('/login', function(req, res) {
-    res.render('/login');
+    res.render('login');
   })
 
   router.post('/login', passport.authenticate('local', {
