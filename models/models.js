@@ -20,7 +20,13 @@ var skillSchema = new Schema({
   description: String,
   parent: {
     type: Schema.ObjectId,
-    ref: 'Skill'
+    ref: 'Skill',
+    required: true
+  },
+  owner: {
+    type: Schema.ObjectId,
+    ref: 'User',
+    required: true
   }
 });
 
