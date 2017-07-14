@@ -34,4 +34,4 @@ router.post('/addSkill:parentId', function(req, res) {
     });
 });
 
-module.exports = router;;
+module.exports = router;
