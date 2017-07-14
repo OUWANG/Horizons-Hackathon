@@ -61,7 +61,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
     });
 }));
 
-app.use('/', auth(passport));
+// app.use('/', auth(passport));
 app.use('/', routes);
 
 app.listen(process.env.PORT || 3000);
