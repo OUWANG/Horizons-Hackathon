@@ -5,7 +5,7 @@ var User = require('../models/models').User;
 var Skill = require('../models/models').Skill;
 
 router.get('/', function(req, res) {
-  Skills.find({
+  Skill.find({
       owner: req.user._id
     })
     .then(function(skills) {
