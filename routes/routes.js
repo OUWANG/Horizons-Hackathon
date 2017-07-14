@@ -34,4 +34,35 @@ router.post('/addSkill:parentId', function(req, res) {
     });
 });
 
+router.post('/getSkills', function(req, res) {
+  Skill.find({
+      owner: req.user._id
+    })
+    .populate('parent')
+    .then(function(skillsArr) {
+      var returnObj = {
+        name: 'Skills',
+        parent: 'null',
+        children: []
+      };
+      skillsArr.forEach(function(skill) {
+        var parent;
+        if (skill.parent) {
+          parent = skill.parent.name;
+        } else {
+          parent = 'Skills';
+        }
+        returnObj.children.push({
+          name: skill.name,
+          parent: parent
+        });
+        console.log(skill);
+      });
+      res.json(returnObj);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+});
+
 module.exports = router;
