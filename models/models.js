@@ -23,6 +23,10 @@ var skillSchema = new Schema({
     ref: 'Skill',
     required: true
   },
+  children: [{
+    type: Schema.ObjectId,
+    ref: 'Skill'
+  }],
   owner: {
     type: Schema.ObjectId,
     ref: 'User',
