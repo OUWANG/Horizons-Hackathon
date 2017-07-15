@@ -19,15 +19,17 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/addSkill/:parentId', function(req, res) {
-  Skill.findById(req.params.parentId)
+router.post('/addSkill/:name', function(req, res) {
+  Skill.findOne({
+      name: req.params.name
+    })
     .then(function(theParent) {
       var newSkill = new Skill({
-        name: 'JavaScript',
-        description: 'make things work',
-        parent: req.params.parentId,
+        name: req.body.name,
+        description: req.body.description,
+        parent: theParent._id,
         owner: req.user._id,
-        level: theParent.level + 1
+        level: (theParent.level + 1)
       });
       newSkill.save()
         .then(function() {

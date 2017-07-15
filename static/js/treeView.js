@@ -90,29 +90,37 @@ $.ajax({
       var modal = document.getElementById('modal')
       modal.showModal();
 
-      console.log($(this))
-      console.log($(this)[0].parentNode)
+      var string = $(this).text();
+
+      console.log(string)
+
+      $(document).keydown(function(e) {
+        if (e.keyCode === 27) {
+          e.preventDefault();
+        }
+      })
 
       $('button').on('click', function() {
         var name = $('#modal #name').val();
         var description = $('#modal #description').val();
 
-        //   $.ajax({
-        //     url: '/addSkill/:parentId',
-        //     method: 'post',
-        //     data: {
-        //       name: name,
-        //       description: description
-        //     }
-        //     success: function() {
-        //       modal.style.display = 'none';
-        //     }
-        //   })
+        modal.close()
+
+        $.ajax({
+          url: '/addSkill/' + string,
+          method: 'post',
+          data: {
+            name: name,
+            description: description
+          },
+          success: function() {
+            modal.style.display = 'none';
+          }
+        })
       })
     })
-
   },
   error: function(err) {
     console.log(err);
   }
-});;
+});
