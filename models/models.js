@@ -20,8 +20,7 @@ var skillSchema = new Schema({
   description: String,
   parent: {
     type: Schema.ObjectId,
-    ref: 'Skill',
-    required: true
+    ref: 'Skill'
   },
   children: [{
     type: Schema.ObjectId,

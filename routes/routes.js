@@ -34,13 +34,13 @@ router.get('/addSkill/:parentId', function(req, res) {
           var arr = theParent.children
           arr.push(newSkill._id)
           theParent.children = arr;
-          console.log(theParent);
+
           theParent.save()
             .then(function() {
               res.redirect('/')
             })
             .catch(function(err) {
-              console.log('333333333', err);
+              console.log(err);
             })
         })
         .catch(function(err) {
