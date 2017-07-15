@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/addSkill/:parentId', function(req, res) {
+router.post('/addSkill/:parentId', function(req, res) {
   Skill.findById(req.params.parentId)
     .then(function(theParent) {
       var newSkill = new Skill({

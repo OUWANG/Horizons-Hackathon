@@ -6,9 +6,6 @@
 <script src="/js/treeView.js"></script>
 <script src="../js/login.js"></script>
 
-<!-- <header>
-<img src="../img/logo.png" style="width: 100px; height: 100px; float: left">
-</header> -->
 <div class="container">
   <img src="../img/logo.png" style="width: 100px; height: 100px; float: left">
   <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
@@ -25,7 +22,28 @@
   </nav>
 </div>
 
-
+<div class='modal fade' id="modal" style='z-index: 1;display:none;'>
+  <form class="form-horizontal well">
+    <div class="form-group">
+      <label class='control-label col-xs-4 inputLabel'>Name</label>
+      <div class="input-group col-xs-4">
+        <span class="input-group-addon"><i class='glyphicon glyphicon-user'></i></span>
+        <input type="text" name='name' class="form-control" placeholder="Name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class='control-label col-xs-4 inputLabel'>Description</label>
+      <div class="input-group col-xs-4">
+        <span class="input-group-addon"><i class='glyphicon glyphicon-pencil'></i></span>
+        <input type="text" name='description' class="form-control" placeholder="Description" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class='control-label col-xs-4'></label>
+      <button class='btn btn-success col-xs-4' type='submit'>Add Skill</button>
+    </div>
+  </form>
+</div>
 
 <section>
   <div class="col-lg-10">
@@ -57,112 +75,104 @@
               <div class="col-lg-12">
                 <div class="col-lg-12 col-sm-6">
 
-                    <div class="col-lg-3">
-                      <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                        <p style="text-align:center">
-                          <img src="https://www.isopensource.com/components/com_shop/media/s1/images/web-development.png" class="img-responsive" alt="">
-                        </p>
-                        <div class="caption">
-                          <div class="blur"></div>
-                          <div class="caption-text">
-                            <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">Web App Dev</h3>
-                            <p>Website building and hacking skills sets</p>
-                            <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus">Tap</span></a>
-                          </div>
+                  <div class="col-lg-3">
+                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                      <p style="text-align:center">
+                        <img src="https://www.isopensource.com/components/com_shop/media/s1/images/web-development.png" class="img-responsive" alt="">
+                      </p>
+                      <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                          <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">Web App Dev</h3>
+                          <p>Website building and hacking skills sets</p>
+                          <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus">Tap</span></a>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div id='tree' class="col-lg-3">
-                      <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                        <p style="text-align:center">
-                          <img src="https://pbs.twimg.com/profile_images/704786990466801664/MmKfxT5l.jpg" class="img-responsive" alt="">
-                        </p>
-                        <div class="caption">
-                          <div class="blur"></div>
-                          <div class="caption-text">
-                            <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">Philosophy 101</h3>
-                            <p>From Greek philosphy to the Crisis of Modern thought</p>
-                            <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
-                          </div>
+                  <div id='tree' class="col-lg-3">
+                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                      <p style="text-align:center">
+                        <img src="https://pbs.twimg.com/profile_images/704786990466801664/MmKfxT5l.jpg" class="img-responsive" alt="">
+                      </p>
+                      <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                          <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">Philosophy 101</h3>
+                          <p>From Greek philosphy to the Crisis of Modern thought</p>
+                          <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="col-lg-3">
-                      <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                        <p style="text-align:center; margin-top:20px;">
-                          <img src="http://placehold.it/500x330" class="img-responsive" alt="">
-                        </p>
-                        <div class="caption">
-                          <div class="blur"></div>
-                          <div class="caption-text">
-                            <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 2</h3>
-                            <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
-                            <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
-                          </div>
+                  <div class="col-lg-3">
+                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                      <p style="text-align:center; margin-top:20px;">
+                        <img src="http://placehold.it/500x330" class="img-responsive" alt="">
+                      </p>
+                      <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                          <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 2</h3>
+                          <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
+                          <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="col-lg-3">
-                      <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                        <p style="text-align:center; margin-top:20px;">
-                          <img src="http://placehold.it/500x330" class="img-responsive" alt="">
-                        </p>
-                        <div class="caption">
-                          <div class="blur"></div>
-                          <div class="caption-text">
-                            <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 2</h3>
-                            <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
-                            <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
-                          </div>
+                  <div class="col-lg-3">
+                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                      <p style="text-align:center; margin-top:20px;">
+                        <img src="http://placehold.it/500x330" class="img-responsive" alt="">
+                      </p>
+                      <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                          <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 2</h3>
+                          <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
+                          <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="col-lg-3">
-                      <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                        <p style="text-align:center; margin-top:20px;">
-                          <img src="http://placehold.it/500x330" class="img-responsive" alt="">
-                        </p>
-                        <div class="caption">
-                          <div class="blur"></div>
-                          <div class="caption-text">
-                            <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 3</h3>
-                            <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
-                            <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
-                          </div>
+                  <div class="col-lg-3">
+                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                      <p style="text-align:center; margin-top:20px;">
+                        <img src="http://placehold.it/500x330" class="img-responsive" alt="">
+                      </p>
+                      <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                          <h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">PLACEHOLDER 3</h3>
+                          <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
+                          <a class=" btn btn-default" href="#"><span class="glyphicon glyphicon-plus"> INFO</span></a>
                         </div>
                       </div>
                     </div>
-                    <!-- <button type="button"
+                  </div>
+                  <!-- <button type="button"
                     class="btn btn-default add-map-save">Save
                   </button> -->
+                </div>
               </div>
             </div>
-          </div>
           </section>
 
 
         </div>
         <div class="tab-pane fade in" id="tab2">
           <h3>These are the trees you created</h3>
-        <div class="mainTree">
-        </div>
+          <div class="mainTree">
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-
-<!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<hr> -->
-
-
-
 
 <footer class="col-lg-3 col-md-6 footer">
   <p>Have a question or feedback? Contact us!</p>

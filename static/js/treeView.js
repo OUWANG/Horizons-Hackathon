@@ -86,12 +86,23 @@ $.ajax({
 
     }
 
-    $("svg").on('click', 'circle', function(){
-      console.log('clicked circle');
+    $("svg").on('click', '.node', function() {
+      console.log($(this).text() + ' was clicked');
+      var modal = document.getElementById('modal');
+
+      modal.style.display = 'block';
+
+      $('button').on('click', function() {
+        $.ajax({
+          url: ''
+        })
+
+        modal.style.display = 'none';
+      })
     })
 
   },
   error: function(err) {
     console.log(err);
   }
-})
+});;
