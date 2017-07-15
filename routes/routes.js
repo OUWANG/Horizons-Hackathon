@@ -39,30 +39,24 @@ router.post('/getSkills', function(req, res) {
       owner: req.user._id
     })
     .populate('parent')
+    .populate({
+      path: 'children',
+      populate: {
+        path: 'children'
+      }
+    })
     .then(function(skillsArr) {
-      var returnObj = {
-        name: 'Skills',
-        parent: 'null',
-        children: []
-      };
-      skillsArr.forEach(function(skill) {
-        var parent;
-        if (skill.parent) {
-          parent = skill.parent.name;
-        } else {
-          parent = 'Skills';
-        }
-        returnObj.children.push({
-          name: skill.name,
-          parent: parent
-        });
-        console.log(skill);
-      });
-      res.json(returnObj);
+
+      skillsArr = skillsArr.sort(function(a, b) {
+        return a.level > b.level;
+      })
+
+      console.log(skillsArr[0]);
+      res.json(skillsArr[0]);
     })
     .catch(function(err) {
       console.log(err);
     });
-});
+})
 
 module.exports = router;
