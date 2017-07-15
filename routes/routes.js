@@ -44,9 +44,9 @@ router.post('/getSkills', function(req, res) {
       path: 'children',
       populate: {
         path: 'children',
-        populate: {
-          path: 'children'
-        }
+        // populate: {
+        //   path: 'children'
+        // }
       }
     })
     .then(function(skillsArr) {
