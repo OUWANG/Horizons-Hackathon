@@ -85,6 +85,11 @@ $.ajax({
         .attr("d", diagonal);
 
     }
+
+    $("svg").on('click', 'circle', function(){
+      console.log('clicked circle');
+    })
+
   },
   error: function(err) {
     console.log(err);
