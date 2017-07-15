@@ -87,17 +87,27 @@ $.ajax({
     }
 
     $("svg").on('click', '.node', function() {
-      console.log($(this).text() + ' was clicked');
-      var modal = document.getElementById('modal');
+      var modal = document.getElementById('modal')
+      modal.showModal();
 
-      modal.style.display = 'block';
+      console.log($(this))
+      console.log($(this)[0].parentNode)
 
       $('button').on('click', function() {
-        $.ajax({
-          url: ''
-        })
+        var name = $('#modal #name').val();
+        var description = $('#modal #description').val();
 
-        modal.style.display = 'none';
+        //   $.ajax({
+        //     url: '/addSkill/:parentId',
+        //     method: 'post',
+        //     data: {
+        //       name: name,
+        //       description: description
+        //     }
+        //     success: function() {
+        //       modal.style.display = 'none';
+        //     }
+        //   })
       })
     })
 
