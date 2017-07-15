@@ -38,11 +38,12 @@ router.post('/getSkills', function(req, res) {
   Skill.find({
       owner: req.user._id
     })
-    .populate('parent')
     .populate({
       path: 'children',
       populate: {
-        path: 'children'
+        path: 'children',
+        select: 'children',
+        select: 'name'
       }
     })
     .then(function(skillsArr) {
@@ -51,8 +52,7 @@ router.post('/getSkills', function(req, res) {
         return a.level > b.level;
       })
 
-      console.log(skillsArr[0]);
-      res.json(skillsArr[0]);
+      res.send(skillsArr[0])
     })
     .catch(function(err) {
       console.log(err);

@@ -1,4 +1,4 @@
-var treeData;
+var treeData = [];
 
 $.ajax({
   url: '/getSkills',
@@ -6,7 +6,7 @@ $.ajax({
   success: function(resp) {
     console.log('Received data!');
     console.log(resp);
-    treeData = resp;
+    treeData.push(resp);
     var margin = {
         top: 40,
         right: 120,
