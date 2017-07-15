@@ -24,7 +24,7 @@ $.ajax({
         return [d.x, d.y];
       });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select(".mainTree").append("svg")
       .attr("width", width + margin.right + margin.left)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
