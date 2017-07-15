@@ -104,6 +104,9 @@
           var name = $('#modal #name').val();
           var description = $('#modal #description').val();
 
+          $('#modal #name').val('');
+          $('#modal #description').val('');
+
           modal.close()
 
           $.ajax({
@@ -220,6 +223,9 @@
                     $('button').on('click', function() {
                       var name = $('#modal #name').val();
                       var description = $('#modal #description').val();
+
+                      $('#modal #name').val('');
+                      $('#modal #description').val('');
 
                       modal.close()
 
