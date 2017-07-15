@@ -19,19 +19,34 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/addSkill:parentId', function(req, res) {
-  var newSkill = new Skill({
-    name: req.body.name,
-    description: req.body.description,
-    parent: req.params.parentId
-  });
-  newSkill.save()
-    .then(function() {
-      res.send('Saved!');
+router.get('/addSkill/:parentId', function(req, res) {
+  Skill.findById(req.params.parentId)
+    .then(function(theParent) {
+      var newSkill = new Skill({
+        name: 'JavaScript',
+        description: 'make things work',
+        parent: req.params.parentId,
+        owner: req.user._id,
+        level: theParent.level + 1
+      });
+      newSkill.save()
+        .then(function() {
+          var arr = theParent.children
+          arr.push(newSkill._id)
+          theParent.children = arr;
+          console.log(theParent);
+          theParent.save()
+            .then(function() {
+              res.redirect('/')
+            })
+            .catch(function(err) {
+              console.log('333333333', err);
+            })
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
     })
-    .catch(function(err) {
-      console.log(err);
-    });
 });
 
 router.post('/getSkills', function(req, res) {
@@ -59,4 +74,4 @@ router.post('/getSkills', function(req, res) {
     });
 })
 
-module.exports = router;
+module.exports = router;;

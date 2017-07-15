@@ -4,8 +4,6 @@ $.ajax({
   url: '/getSkills',
   method: 'post',
   success: function(resp) {
-    console.log('Received data!');
-    console.log(resp);
     treeData.push(resp);
     var margin = {
         top: 40,
